@@ -20,7 +20,7 @@ public class ArraysClass {
 
         System.out.println(Arrays.toString(arr4));
 
-        ArrayList al1 = new ArrayList();
+        ArrayList<Integer> al1 = new ArrayList<>();
         al1.add(100);
         System.out.println(al1);
 
