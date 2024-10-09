@@ -3,7 +3,7 @@ import java.util.List;
 
 public class AsList {
   public static void main(String[] args) {
-    String name[] = { "a", "b", "c" };
+    String name[] = { "a", "100", null };
     List<String> names = Arrays.asList(name);
     System.out.println(name.getClass());
     System.out.println(names.getClass());
@@ -15,6 +15,13 @@ public class AsList {
     Fruit apple = new Fruit("apple", "red");
     System.out.println(apple);
     apple.squeeze("a", "b", "c");
+    // System.out.println(Arrays.asList(null));// NullPointerException
+    String color[]= new String[]{"green", "yellow"}; // can't specifiy a size if you're going to initialize it
+    color[0] = "red";
+    System.err.println(Arrays.asList(color));
+    String city[] = new String[2];
+    city[0] = "New York";
+    System.out.println(Arrays.asList(city));
   }
 
   public static class Fruit {
