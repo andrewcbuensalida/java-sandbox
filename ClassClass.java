@@ -11,6 +11,11 @@ public class ClassClass {
         ClassClass c = new ClassClass();
         System.out.println("this is c: " + c);
         System.out.println(c.getClass());
+        System.out.println(c.num);
+        System.out.println(c.getNum());
+    }
+    public int getNum(){
+      return num;
     }
 
     @Override

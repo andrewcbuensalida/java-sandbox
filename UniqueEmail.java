@@ -6,7 +6,8 @@ import java.util.Set;
 class Solution {
   public static void main(String[] args) {
     Solution sol = new Solution();
-    sol.numUniqueEmails(new String[] { "linqmafia@leet+code.com", "linqmafia@code.com" });
+    final int answer = sol.numUniqueEmails(new String[] { "linqmafia@leet+code.com", "linqmafia@code.com" });
+    System.out.println(answer);
   }
 
   public int numUniqueEmails(String[] emails) {
@@ -25,7 +26,7 @@ class Solution {
         localNoFilter = local.substring(0, indexOfPlus);
       }
       // remove dots from local
-      String localNoDots = localNoFilter.replaceAll("\\.", "");
+      String localNoDots = localNoFilter.replace(".", "");
       // join local and domain
       String cleanEmail = localNoDots + domain;
       // add to set
