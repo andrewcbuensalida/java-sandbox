@@ -6,5 +6,8 @@ public class HashSet1 {
     h.add("a");
     h.add("b");
     System.out.println(h);
+    for (String s : h) {
+      System.out.println(s);
+    }
   }
 }

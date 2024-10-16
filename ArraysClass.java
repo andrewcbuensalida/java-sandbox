@@ -5,7 +5,10 @@ public class ArraysClass {
     public static void main(String[] args) { // must have a main method
         System.out.println("Arrays");
 
-        int arr1[] = {1,2,3};
+        Integer arr1[] = {1, 2, 3};
+        System.out.println("length "+arr1.length);
+        Arrays.sort(arr1, (a, b) -> b - a);
+        
         System.out.println(Arrays.toString(arr1));
 
         int[] arr2 = {4,5,6};
@@ -23,6 +26,9 @@ public class ArraysClass {
 
         ArrayList<Integer> al1 = new ArrayList<>();
         al1.add(100);
+        al1.add(200);
+        al1.add(300);
+        al1.sort((a, b) -> b - a);
         System.out.println(al1);
 
         final String myString = "abcd";
