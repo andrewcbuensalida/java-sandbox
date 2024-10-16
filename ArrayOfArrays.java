@@ -26,5 +26,18 @@ public class ArrayOfArrays {
     String sCopy = s;
     String result = sCopy.replace("h", "i");
     System.out.println(result);
+
+
+    int rows = 3;
+    int cols = 3;
+    int[][] zerosMatrix = new int[rows][cols];
+
+    // Print the matrix of zeros
+    for (int i = 0; i < zerosMatrix.length; i++) {
+      for (int j = 0; j < zerosMatrix[i].length; j++) {
+      System.out.print(zerosMatrix[i][j] + " ");
+      }
+      System.out.println();
+    }
   }
 }
