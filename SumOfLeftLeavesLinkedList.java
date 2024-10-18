@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
-public class SumOfLeftLeaves {
+class SumOfLeftLeavesLinkedList {
   public static void main(String[] args) {
     TreeNode l7 = new TreeNode(7);
     TreeNode l15 = new TreeNode(15);
@@ -14,18 +13,18 @@ public class SumOfLeftLeaves {
     long endTime = System.nanoTime();
     long duration = (endTime - startTime);
     System.out.println("Execution time in nanoseconds: " + duration);
-    System.out.println("*********Example result2:\n" + result);
+    System.out.println("*********Example result:\n" + result);
 
   }
 
   public int sumOfLeftLeaves(TreeNode root) {
     int sum = 0;
-    List<TreeNodeWithIsLeft> queue = new ArrayList<>();
+    LinkedList<TreeNodeWithIsLeft> queue = new LinkedList<>();
     TreeNodeWithIsLeft newRoot = new TreeNodeWithIsLeft(root.val, root.left, root.right, false);
     queue.add(newRoot);
     // while there are nodes in the queue to check BFS
     while (queue.size() != 0) {
-      TreeNodeWithIsLeft currentNode = queue.remove(0);
+      TreeNodeWithIsLeft currentNode = queue.poll();
       System.out.println(currentNode);
       // if it's a leaf, add val to sum
       if (currentNode.left == null && currentNode.right == null && currentNode.isLeft) {

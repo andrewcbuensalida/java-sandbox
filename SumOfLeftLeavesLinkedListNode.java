@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
-public class SumOfLeftLeaves {
+class SumOfLeftLeavesLinkedListNode {
   public static void main(String[] args) {
     TreeNode l7 = new TreeNode(7);
     TreeNode l15 = new TreeNode(15);
@@ -14,32 +13,30 @@ public class SumOfLeftLeaves {
     long endTime = System.nanoTime();
     long duration = (endTime - startTime);
     System.out.println("Execution time in nanoseconds: " + duration);
-    System.out.println("*********Example result2:\n" + result);
+    System.out.println("*********Example result:\n" + result);
 
   }
 
   public int sumOfLeftLeaves(TreeNode root) {
     int sum = 0;
-    List<TreeNodeWithIsLeft> queue = new ArrayList<>();
-    TreeNodeWithIsLeft newRoot = new TreeNodeWithIsLeft(root.val, root.left, root.right, false);
+    LinkedList<TreeNodeWithIsLeft> queue = new LinkedList<>();
+    TreeNodeWithIsLeft newRoot = new TreeNodeWithIsLeft(root, false);
     queue.add(newRoot);
     // while there are nodes in the queue to check BFS
     while (queue.size() != 0) {
-      TreeNodeWithIsLeft currentNode = queue.remove(0);
-      System.out.println(currentNode);
+      TreeNodeWithIsLeft currentNode = queue.poll();
       // if it's a leaf, add val to sum
-      if (currentNode.left == null && currentNode.right == null && currentNode.isLeft) {
-        System.out.println("adding sum + val: " + (sum + currentNode.val) );
-        sum += currentNode.val;
+      if (currentNode.node.left == null && currentNode.node.right == null && currentNode.isLeft) {
+        sum += currentNode.node.val;
       }
       // if there's a left node, mark that it's a left node, then add to queue
-      if (currentNode.left != null) {
-        queue.add(new TreeNodeWithIsLeft(currentNode.left.val, currentNode.left.left, currentNode.left.right, true));
+      if (currentNode.node.left != null) {
+        queue.add(new TreeNodeWithIsLeft(currentNode.node.left, true));
       }
       // if there's a right node, add to queue
-      if (currentNode.right != null) {
+      if (currentNode.node.right != null) {
         queue
-            .add(new TreeNodeWithIsLeft(currentNode.right.val, currentNode.right.left, currentNode.right.right, false));
+            .add(new TreeNodeWithIsLeft(currentNode.node.right, false));
       }
     }
     return sum;
@@ -47,19 +44,12 @@ public class SumOfLeftLeaves {
 }
 
 class TreeNodeWithIsLeft extends TreeNode {
+  TreeNode node;
   boolean isLeft;
 
-  public TreeNodeWithIsLeft(int val, TreeNode left, TreeNode right, boolean isLeft) {
-    super(val, left, right);
+  public TreeNodeWithIsLeft(TreeNode node, boolean isLeft) {
+    this.node = node;
     this.isLeft = isLeft;
-  }
-
-  @Override
-  public String toString() {
-    return "TreeNodeWithIsLeft{" +
-        "val=" + val +
-        ", isLeft=" + isLeft +
-        '}';
   }
 }
 
