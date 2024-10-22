@@ -7,7 +7,7 @@ public class HashMappers {
         m1.put("c","d");
         m1.put("e","f");
         m1.put("e","g");
-
+        m1.clone();
         m1.remove("c");
         System.out.println(m1.get("a"));
         System.out.println(m1);

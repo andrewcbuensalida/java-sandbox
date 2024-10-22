@@ -5,7 +5,8 @@ public class ArraysClass {
     public static void main(String[] args) { // must have a main method
 //         System.out.println("Arrays");
 
-//         Integer arr1[] = {1, 2, 3};
+        Integer arr1[] = {1, 2, 3};
+        arr1.clone();
 //         System.out.println("length "+arr1.length);
 //         Arrays.sort(arr1, (a, b) -> b - a);
         
@@ -27,6 +28,7 @@ public class ArraysClass {
         ArrayList<Integer> al1 = new ArrayList<>();
         al1.add(100);
         al1.set(0, 100000);
+        al1.clone();
         al1.add(200);
         al1.remove(1);
         al1.add(300);
