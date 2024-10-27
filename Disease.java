@@ -7,7 +7,7 @@ public class Disease{
     this.mortalityRate = builder.mortalityRate;
   }
 
-  // don't need this method
+  // don't need this method if doing new Disease.Builder()
   public static Builder builder() {
     return new Builder();
   }
